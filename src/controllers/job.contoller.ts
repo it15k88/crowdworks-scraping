@@ -19,7 +19,7 @@ const processScrapedJob = async (userid: string, jobs: IScrapedJob[]) => {
           `<b>締切:</b> ${job.deadline}（残り${job.daysLeft}日）\n` +
           (job.price ? `<b>報酬:</b> ${job.price}\n` : "") +
           (job.suggestions ? `<b>提案数:</b> ${job.suggestions}\n` : "") +
-          (job.employerAvatar
+          (!job.employerAvatar.startsWith("data:image")
             ? `<b>顧客:</b> <a href="${job.employerAvatar}">https://crowdworks.jp${job.employerAvatar}</a>`
             : ""),
         job.url,
